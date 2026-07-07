@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatório de Campanha · Glezia Gomes Studio de Natação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #0A2647;
+    --navy-deep: #061A33;
+    --navy-mid: #123A63;
+    --pool: #2E9EDB;
+    --gold: #F5B700;
+    --ink: #EAF2FB;
+    --ink-dim: #9FB4CC;
+    --line: rgba(234,242,251,0.12);
+    --danger: #E8734A;
+    --positive: #3DDC97;
+    --positive-dim: rgba(61,220,151,0.12);
+    --ring1: #E91E8C;
+    --ring2: #FF8A00;
+    --ring3: #FFD400;
+  }
+  *{ box-sizing: border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    background: var(--navy-deep);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.5;
+  }
+  .ring-bar{
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--ring1), var(--ring2), var(--ring3));
+  }
+  .wrap{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap: 16px;
+  }
+  .badge{
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--ring1), var(--ring2), var(--ring3));
+    flex-shrink: 0;
+  }
+  .badge-inner{
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background: var(--navy);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .badge-inner svg{ width: 26px; height: 26px; }
+  .brand-text .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 4px;
+  }
+  .brand-text h1{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+    margin: 0;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .brand-text .sub{
+    font-size: 12.5px;
+    color: var(--ink-dim);
+    margin-top: 3px;
+  }
+  .period{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink-dim);
+    text-align: right;
+  }
+  .period strong{ color: var(--ink); display:block; font-size: 15px; margin-bottom: 4px;}
+
+  .lanes{
+    height: 26px;
+    margin: 28px 0 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .lane-line{
+    height: 1px;
+    background: repeating-linear-gradient(90deg, var(--pool) 0, var(--pool) 10px, transparent 10px, transparent 18px);
+    opacity: 0.5;
+  }
+
+  section{ margin-bottom: 52px; }
+  .section-title{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    margin: 0 0 20px;
+    color: var(--ink);
+  }
+
+  .kpi-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .kpi{
+    background: var(--navy);
+    padding: 22px 20px;
+  }
+  .kpi .label{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 10px;
+  }
+  .kpi .value{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .kpi .value.gold{ color: var(--gold); }
+  .kpi .value.positive{ color: var(--positive); }
+  .kpi .sub{ font-size: 11.5px; color: var(--ink-dim); margin-top: 6px; }
+  .trend{
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    color: var(--positive);
+    background: var(--positive-dim);
+    padding: 2px 8px;
+    border-radius: 100px;
+    margin-top: 8px;
+  }
+
+  /* Funil estilo raia de piscina */
+  .funnel{
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+  .funnel-step{
+    flex: 1;
+    position: relative;
+    padding: 20px 16px;
+    background: var(--navy);
+    border: 1px solid var(--line);
+    border-top: 2px solid var(--pool);
+  }
+  .funnel-step + .funnel-step{ border-left: none; }
+  .funnel-step .fig{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .funnel-step .lbl{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--pool);
+    margin-top: 6px;
+  }
+  .funnel-arrow{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width: 26px;
+    color: var(--ink-dim);
+    background: var(--navy-deep);
+    font-size: 13px;
+  }
+  .funnel-note{
+    font-size: 12.5px;
+    color: var(--ink-dim);
+    margin-top: 12px;
+  }
+
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  thead th{
+    text-align: left;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    padding: 0 14px 12px;
+    border-bottom: 1px solid var(--line);
+    font-weight: 500;
+  }
+  tbody td{
+    padding: 16px 14px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  tbody tr:last-child td{ border-bottom: none; }
+  .campaign-name{ font-weight: 500; color: var(--ink); }
+  .status{
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 3px 9px;
+    border-radius: 100px;
+    margin-top: 6px;
+  }
+  .status.warn{ background: rgba(232,115,74,0.18); color: var(--danger); }
+  .status.off{ background: rgba(234,242,251,0.08); color: var(--ink-dim); }
+  .num{ font-family: 'IBM Plex Mono', monospace; text-align: right; }
+  .muted{ color: var(--ink-dim); }
+
+  .callout{
+    border-left: 2px solid var(--gold);
+    padding: 14px 20px;
+    font-size: 13px;
+    color: var(--ink-dim);
+    margin-top: 20px;
+    background: rgba(245,183,0,0.06);
+  }
+  .callout strong{ color: var(--ink); }
+
+  .locations{
+    display:flex;
+    gap: 10px;
+    margin-top: 4px;
+  }
+  .pin{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--pool);
+    background: rgba(46,158,219,0.1);
+    border: 1px solid rgba(46,158,219,0.3);
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+
+  footer{
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+    font-size: 11.5px;
+    color: var(--ink-dim);
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @media (max-width: 680px){
+    .kpi-grid{ grid-template-columns: 1fr 1fr; }
+    .funnel{ flex-direction: column; }
+    .funnel-arrow{ width: auto; height: 18px; transform: rotate(90deg); }
+    header{ flex-direction: column; align-items: flex-start; }
+    .period{ text-align: left; }
+    table, thead, tbody, th, td, tr { display: block; }
+    thead{ display:none; }
+    tbody td{ display:flex; justify-content: space-between; gap: 12px; border: none; padding: 6px 0; }
+    tbody tr{ padding: 16px 0; border-bottom: 1px solid var(--line); }
+    tbody td::before{ content: attr(data-label); color: var(--ink-dim); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.04em; }
+  }
+</style>
+</head>
+<body>
+<div class="ring-bar"></div>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <div class="badge">
+        <div class="badge-inner">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 17c1.2 1 2.2 1 3.4 0 1.2-1 2.2-1 3.4 0 1.2 1 2.2 1 3.4 0 1.2-1 2.2-1 3.4 0 1.2 1 2.2 1 3.4 0 1.2-1 2.2-1 3.4 0" stroke="#2E9EDB" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M2 21c1.2 1 2.2 1 3.4 0 1.2-1 2.2-1 3.4 0 1.2 1 2.2 1 3.4 0 1.2-1 2.2-1 3.4 0 1.2 1 2.2 1 3.4 0 1.2-1 2.2-1 3.4 0" stroke="#F5B700" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="16.5" cy="6" r="1.6" fill="#EAF2FB"/>
+            <path d="M7 12.5c2-3 4.5-4 7-3.2 1.6.5 2.2 1.7 4 1.7" stroke="#EAF2FB" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+      </div>
+      <div class="brand-text">
+        <p class="eyebrow">Relatório de Campanha · Meta Ads</p>
+        <h1>Glezia Gomes · Studio de Natação</h1>
+        <div class="locations">
+          <span class="pin">📍 Anápolis City</span>
+          <span class="pin">📍 Jundiaí</span>
+        </div>
+      </div>
+    </div>
+    <div class="period">
+      <strong>08 jun – 07 jul de 2026</strong>
+      Performance Inteligente · PerfoWise
+    </div>
+  </header>
+
+  <div class="lanes">
+    <div class="lane-line"></div>
+    <div class="lane-line"></div>
+  </div>
+
+  <section>
+    <p class="section-title">Visão geral do período</p>
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="label">Valor investido</div>
+        <div class="value">R$ 527,12</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Alcance</div>
+        <div class="value">22.560</div>
+        <div class="sub">pessoas únicas</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Impressões</div>
+        <div class="value">57.038</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Conversas iniciadas</div>
+        <div class="value positive">86</div>
+        <div class="sub">interessados em aulas via WhatsApp</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Custo por conversa</div>
+        <div class="value positive">R$ 6,13</div>
+        <div class="trend">▼ custo baixo por lead</div>
+      </div>
+      <div class="kpi">
+        <div class="label">Novos contatos gerados</div>
+        <div class="value positive">78</div>
+        <div class="trend">▲ 90,7% de conversão</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-title">Funil de resultado</p>
+    <div class="funnel">
+      <div class="funnel-step">
+        <div class="fig">57.038</div>
+        <div class="lbl">Impressões</div>
+      </div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step">
+        <div class="fig">22.560</div>
+        <div class="lbl">Pessoas alcançadas</div>
+      </div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step">
+        <div class="fig">86</div>
+        <div class="lbl">Conversas iniciadas</div>
+      </div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step" style="border-top-color: var(--positive);">
+        <div class="fig" style="color: var(--positive);">78</div>
+        <div class="lbl" style="color: var(--positive);">Novos contatos</div>
+      </div>
+    </div>
+    <p class="funnel-note">A cada 100 conversas iniciadas no WhatsApp, aproximadamente 91 viraram um contato novo interessado em matrícula — sinal de que a etapa de abertura da conversa está funcionando bem para o studio.</p>
+  </section>
+
+  <footer>
+    <span>Performance Inteligente</span>
+    <span>Relatório para @gleziag</span>
+  </footer>
+
+</div>
+</body>
+</html>
