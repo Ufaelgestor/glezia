@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Relatório de Performance — Glezia Gomes</title>
+<title>Como foram seus anúncios — Glezia Gomes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
     --coral: #f2a154;
     --green: #2fa876;
     --amber: #e0a527;
-    --radius: 12px;
+    --radius: 14px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -34,126 +34,90 @@
       var(--bg);
     color:var(--text);
     font-family:'Inter', sans-serif;
-    line-height:1.55;
+    line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:1120px;margin:0 auto;padding:0 24px 80px;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px 80px;}
   h1,h2{font-family:'Space Grotesk', sans-serif;font-weight:700;letter-spacing:-0.01em;margin:0;color:var(--text);}
 
-  .topbar{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid var(--line);max-width:1120px;margin:0 auto;}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid var(--line);max-width:920px;margin:0 auto;}
   .brand{display:flex;align-items:center;gap:10px;}
-  .brand-mark{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg, var(--teal), var(--teal-2));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;}
-  .brand-name{font-family:'Space Grotesk',sans-serif;font-size:15px;letter-spacing:0.01em;color:var(--muted);}
+  .brand-mark{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg, var(--teal), var(--teal-2));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;}
+  .brand-name{font-family:'Space Grotesk',sans-serif;font-size:16px;letter-spacing:0.01em;color:var(--muted);}
   .brand-name b{color:var(--text);}
   .topbar-date{font-family:'Inter',sans-serif;font-size:13px;color:var(--muted-2);}
 
-  .hero{padding:52px 0 36px;}
-  .hero-eyebrow{font-family:'Inter',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;color:var(--teal);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
-  .hero-eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px rgba(47,168,118,0.5);}
-  .hero h1{font-size:clamp(30px,4vw,42px);line-height:1.15;max-width:760px;}
+  .hero{padding:52px 0 20px;text-align:center;}
+  .hero-emoji{font-size:44px;margin-bottom:8px;}
+  .hero h1{font-size:clamp(30px,5vw,44px);line-height:1.2;max-width:680px;margin:0 auto;}
   .hero h1 span{color:var(--teal);}
-  .hero-sub{color:var(--muted);max-width:640px;margin-top:16px;font-size:17px;line-height:1.65;}
+  .hero-sub{color:var(--muted);max-width:560px;margin:18px auto 0;font-size:18px;line-height:1.7;}
 
-  .headline-stats{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-  .headline-stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px 20px;text-align:center;box-shadow:0 1px 3px rgba(20,58,88,0.05);}
-  .headline-stat .num{font-family:'Space Grotesk',monospace;font-size:36px;font-weight:700;color:var(--teal);line-height:1;}
-  .headline-stat .lbl{font-size:14px;color:var(--muted);margin-top:10px;line-height:1.4;}
+  .headline-stats{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .headline-stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px 18px;text-align:center;box-shadow:0 2px 6px rgba(20,58,88,0.06);}
+  .headline-stat .num{font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;color:var(--teal);line-height:1;}
+  .headline-stat .lbl{font-size:14.5px;color:var(--muted);margin-top:10px;line-height:1.45;}
 
-  .section-eyebrow{font-family:'Inter',sans-serif;font-weight:600;font-size:13px;color:var(--teal);letter-spacing:0.04em;text-transform:uppercase;margin-bottom:10px;display:block;}
-
-  .growth{margin-top:20px;display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
-  .growth-block{background:var(--panel);padding:26px 24px;}
-  .growth-block .period-label{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;color:var(--muted-2);text-transform:uppercase;letter-spacing:0.03em;}
-  .growth-block.after .period-label{color:var(--teal);}
-  .growth-block .period-dates{font-size:14px;color:var(--muted);margin-top:2px;}
-  .growth-block .big{font-family:'Space Grotesk',sans-serif;font-size:46px;font-weight:700;color:var(--text);margin-top:16px;line-height:1;}
-  .growth-block.after .big{color:var(--teal);}
-  .growth-block .big-label{font-size:13.5px;color:var(--muted);margin-top:6px;}
-  .growth-block .stat-row{display:flex;gap:26px;margin-top:20px;}
-  .growth-block .stat-row div{font-size:12.5px;color:var(--muted-2);}
-  .growth-block .stat-row b{display:block;font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--text);font-size:16px;margin-top:3px;}
-
-  .growth-mid{background:var(--panel-2);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 22px;gap:14px;min-width:160px;}
-  .badge{background:rgba(47,168,118,0.10);border:1px solid rgba(47,168,118,0.4);color:var(--green);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;border-radius:8px;padding:8px 14px;text-align:center;white-space:nowrap;}
-  .badge.small{font-size:13px;padding:6px 12px;}
-  .growth-mid .arrow{font-size:22px;color:var(--muted-2);}
-
-  .cluster{margin-top:20px;display:grid;grid-template-columns:1.15fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
-  .cluster > div{background:var(--panel);padding:28px;}
-  .stat-label{font-family:'Inter',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.03em;color:var(--muted-2);text-transform:uppercase;}
-  .big-num{font-family:'Space Grotesk',sans-serif;font-size:52px;font-weight:700;color:var(--teal);margin-top:14px;line-height:1;}
-  .stat-caption{margin-top:14px;color:var(--muted);font-size:15px;line-height:1.6;}
-  .stat-caption b{color:var(--text);}
-  .stat-sub{margin-top:22px;display:flex;gap:22px;flex-wrap:wrap;}
-  .stat-sub div{font-size:12.5px;color:var(--muted-2);}
-  .stat-sub b{display:block;font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--text);font-size:16px;margin-top:2px;}
-
-  .gauge-wrap{display:flex;flex-direction:column;align-items:center;text-align:center;}
-  .gauge-title{font-family:'Inter',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.02em;color:var(--muted-2);text-transform:uppercase;align-self:flex-start;}
-  svg.gauge{width:220px;height:130px;margin-top:6px;}
-  .gauge-value{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:var(--text);margin-top:-6px;}
-  .gauge-zone-label{font-size:13px;color:var(--green);font-family:'Space Grotesk',sans-serif;font-weight:600;margin-top:2px;}
-  .gauge-legend{display:flex;gap:14px;margin-top:16px;font-size:12px;color:var(--muted-2);}
-  .gauge-legend span{display:flex;align-items:center;gap:5px;}
-  .dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
-
-  .sensors{margin-top:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
-  .sensor{background:var(--panel);padding:20px 18px;}
-  .sensor-val{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:var(--text);}
-  .sensor-label{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.4;}
+  .big-callout{
+    margin-top:40px;background:linear-gradient(135deg, rgba(28,110,164,0.08), rgba(242,161,84,0.08));
+    border:1px solid var(--line);border-radius:20px;padding:36px 32px;text-align:center;
+  }
+  .big-callout .lead{font-size:19px;color:var(--muted);}
+  .big-callout .compare{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:22px;flex-wrap:wrap;}
+  .compare-num{text-align:center;}
+  .compare-num .n{font-family:'Space Grotesk',sans-serif;font-size:54px;font-weight:700;color:var(--text);line-height:1;}
+  .compare-num.after .n{color:var(--teal);}
+  .compare-num .l{font-size:14px;color:var(--muted);margin-top:8px;max-width:150px;}
+  .compare-arrow{font-size:30px;color:var(--coral);}
+  .big-callout .months{display:flex;justify-content:center;gap:60px;margin-top:6px;flex-wrap:wrap;}
+  .big-callout .months span{font-size:13px;color:var(--muted-2);font-weight:600;}
 
   .section{margin-top:60px;}
-  .section-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;margin-bottom:22px;}
-  .section-head h2{font-size:23px;}
-  .section-head p{color:var(--muted);font-size:14.5px;margin:6px 0 0;}
+  .section-title{font-size:26px;text-align:center;}
+  .section-sub{color:var(--muted);font-size:16px;text-align:center;margin:8px auto 0;max-width:480px;}
 
-  .chips{display:flex;gap:8px;}
-  .chip{font-family:'Inter',sans-serif;font-weight:600;font-size:13px;padding:8px 16px;border-radius:20px;border:1px solid var(--line);color:var(--muted);cursor:pointer;background:var(--panel);transition:all .15s ease;}
-  .chip:hover{border-color:var(--teal);color:var(--teal);}
-  .chip.active{background:var(--teal);border-color:var(--teal);color:#fff;}
-
-  .campaigns{display:grid;gap:16px;}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;opacity:0;transform:translateY(14px);transition:opacity .5s ease, transform .5s ease;box-shadow:0 1px 3px rgba(20,58,88,0.05);}
+  .campaigns{display:grid;gap:18px;margin-top:32px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;opacity:0;transform:translateY(14px);transition:opacity .5s ease, transform .5s ease;box-shadow:0 2px 6px rgba(20,58,88,0.05);}
   .card.show{opacity:1;transform:translateY(0);}
-  .card.hidden{display:none;}
   .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;}
   .card-title{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:700;color:var(--text);}
-  .card-meta{color:var(--muted);font-size:13.5px;margin-top:4px;}
-  .status-pill{font-size:12px;font-family:'Inter',sans-serif;font-weight:600;padding:6px 13px;border-radius:20px;white-space:nowrap;flex:none;}
+  .card-meta{color:var(--muted);font-size:14px;margin-top:4px;}
+  .status-pill{font-size:12.5px;font-family:'Inter',sans-serif;font-weight:600;padding:6px 14px;border-radius:20px;white-space:nowrap;flex:none;}
   .status-active{background:rgba(47,168,118,0.10);color:var(--green);border:1px solid rgba(47,168,118,0.35);}
-  .status-paused{background:rgba(92,118,132,0.10);color:var(--muted);border:1px solid var(--line);}
+  .status-status-paused, .status-paused{background:rgba(92,118,132,0.10);color:var(--muted);border:1px solid var(--line);}
 
-  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:16px;margin-top:20px;}
-  .card-grid div{border-top:1px solid var(--line);padding-top:10px;}
-  .card-grid .k{font-size:12px;color:var(--muted-2);}
-  .card-grid .v{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;color:var(--text);margin-top:4px;}
+  .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px;}
+  .card-grid div{border-top:1px solid var(--line);padding-top:12px;}
+  .card-grid .k{font-size:13px;color:var(--muted-2);}
+  .card-grid .v{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--text);margin-top:5px;}
 
-  .bar-row{margin-top:18px;}
-  .bar-label{display:flex;justify-content:space-between;font-size:12px;color:var(--muted-2);margin-bottom:6px;}
-  .bar-track{height:6px;background:var(--panel-2);border-radius:4px;overflow:hidden;}
-  .bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--teal),var(--teal-2));width:0%;transition:width 1s ease;}
+  .note-inline{margin-top:16px;font-size:14.5px;color:var(--muted);background:var(--panel-2);border-radius:10px;padding:14px 16px;line-height:1.6;}
+  .note-inline b{color:var(--text);}
 
-  .note-inline{margin-top:14px;font-size:13.5px;color:var(--muted-2);border-top:1px dashed var(--line);padding-top:12px;line-height:1.6;}
-  .note-inline b{color:var(--muted);}
+  .insights{display:grid;grid-template-columns:1fr;gap:16px;margin-top:32px;}
+  .insight-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;display:flex;gap:18px;align-items:flex-start;box-shadow:0 2px 6px rgba(20,58,88,0.05);}
+  .insight-emoji{font-size:30px;flex:none;line-height:1;margin-top:2px;}
+  .insight-card .tag{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:var(--text);}
+  .insight-card p{color:var(--muted);font-size:16px;line-height:1.65;margin:8px 0 0;}
+  .insight-card p b{color:var(--teal);}
 
-  .footnote{margin-top:18px;font-size:13.5px;color:var(--muted-2);background:var(--panel-2);border-radius:8px;padding:14px 18px;line-height:1.6;}
+  .thankyou{
+    margin-top:56px;background:linear-gradient(135deg, var(--teal), var(--teal-2));
+    border-radius:20px;padding:38px 32px;text-align:center;color:#fff;
+  }
+  .thankyou .emoji{font-size:36px;}
+  .thankyou h2{color:#fff;font-size:24px;margin-top:8px;}
+  .thankyou p{color:rgba(255,255,255,0.9);font-size:16px;max-width:480px;margin:12px auto 0;line-height:1.65;}
 
-  .insights{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
-  .insight-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 1px 3px rgba(20,58,88,0.05);}
-  .insight-card .tag{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:var(--teal);}
-  .insight-card p{color:var(--muted);font-size:15px;line-height:1.6;margin:10px 0 0;}
-  .insight-card p b{color:var(--text);}
-
-  footer{margin-top:70px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  footer{margin-top:50px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
   footer .f-brand{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;color:var(--muted-2);}
   footer .f-note{font-family:'Inter',sans-serif;font-size:12.5px;color:var(--muted-2);}
 
-  @media (max-width:760px){
-    .cluster{grid-template-columns:1fr;}
-    .growth{grid-template-columns:1fr;}
-    .growth-mid{flex-direction:row;padding:16px;}
+  @media (max-width:640px){
     .headline-stats{grid-template-columns:1fr;}
-    .insights{grid-template-columns:1fr;}
+    .card-grid{grid-template-columns:1fr 1fr;}
+    .big-callout .compare{gap:14px;}
+    .compare-num .n{font-size:42px;}
   }
   @media (prefers-reduced-motion: reduce){
     *{animation:none !important;transition:none !important;}
@@ -167,224 +131,130 @@
     <div class="brand-mark">GG</div>
     <div class="brand-name"><b>Glezia Gomes</b> · Estúdio de Natação</div>
   </div>
-  <div class="topbar-date">GERADO EM 05/08/2026 · POR PERFOWISE</div>
+  <div class="topbar-date">05/08/2026 · PerfoWise</div>
 </div>
 
 <div class="wrap">
 
   <section class="hero">
-    <div class="hero-eyebrow">Relatório de anúncios · Conta CA - Glezia Gomes</div>
-    <h1>Os ajustes que fizemos estão trazendo mais <span>agendamentos por menos</span></h1>
-    <p class="hero-sub">Resumo dos anúncios da Glezia Gomes nos últimos 60 dias (06/06 a 05/08/2026). Em julho, trocamos a campanha e o criativo — o comparativo abaixo mostra o resultado disso na prática: mais conversas de agendamento, custando menos cada uma.</p>
+    <div class="hero-emoji">🎉</div>
+    <h1>Boas notícias: <span>mais gente</span> quer nadar com você!</h1>
+    <p class="hero-sub">Nos últimos 2 meses, seus anúncios trouxeram cada vez mais pessoas perguntando sobre aula — e cada uma delas custou mais barato. Vamos te mostrar como foi, bem simples.</p>
 
     <div class="headline-stats">
-      <div class="headline-stat"><div class="num">190</div><div class="lbl">Conversas de agendamento geradas em 60 dias</div></div>
-      <div class="headline-stat"><div class="num">R$ 5,34</div><div class="lbl">Quanto custou, em média, cada conversa</div></div>
-      <div class="headline-stat"><div class="num">101 mil</div><div class="lbl">Pessoas impactadas pelos anúncios</div></div>
+      <div class="headline-stat"><div class="num">190</div><div class="lbl">pessoas mandaram mensagem perguntando sobre aula</div></div>
+      <div class="headline-stat"><div class="num">R$ 5,34</div><div class="lbl">foi o que custou, em média, cada uma dessas mensagens</div></div>
+      <div class="headline-stat"><div class="num">101 mil</div><div class="lbl">pessoas viram o anúncio do seu estúdio</div></div>
     </div>
 
-    <div class="section-eyebrow" style="margin-top:36px;">01 · Comparativo mês a mês</div>
-    <div class="growth">
-      <div class="growth-block before">
-        <div class="period-label">Mês 1 · Junho</div>
-        <div class="period-dates">06/06 — 05/07/2026</div>
-        <div class="big">86</div>
-        <div class="big-label">Conversas de agendamento</div>
-        <div class="stat-row">
-          <div>Investido<b>R$ 527,12</b></div>
-          <div>Custo/conversa<b>R$ 6,13</b></div>
-        </div>
+    <div class="big-callout">
+      <p class="lead">Olha a diferença de um mês pro outro 👇</p>
+      <div class="compare">
+        <div class="compare-num before"><div class="n">86</div><div class="l">pessoas interessadas</div></div>
+        <div class="compare-arrow">→</div>
+        <div class="compare-num after"><div class="n">104</div><div class="l">pessoas interessadas</div></div>
       </div>
-      <div class="growth-mid">
-        <div class="badge">↑ 21% mais conversas</div>
-        <div class="arrow">→</div>
-        <div class="badge small">↓ 23% no custo por conversa</div>
-        <div style="font-size:12px;color:var(--muted-2);text-align:center;max-width:150px;">Depois da troca de campanha e criativo em 13/07</div>
+      <div class="months">
+        <span>JUNHO</span>
+        <span>JULHO</span>
       </div>
-      <div class="growth-block after">
-        <div class="period-label">Mês 2 · Julho</div>
-        <div class="period-dates">06/07 — 05/08/2026</div>
-        <div class="big">104</div>
-        <div class="big-label">Conversas de agendamento</div>
-        <div class="stat-row">
-          <div>Investido<b>R$ 487,34</b></div>
-          <div>Custo/conversa<b>R$ 4,69</b></div>
-        </div>
-      </div>
+      <p class="lead" style="margin-top:20px;">Ou seja: <b style="color:var(--teal);">21% mais gente entrando em contato</b>, e cada contato ficou <b style="color:var(--teal);">23% mais barato</b> (de R$ 6,13 para R$ 4,69) 💙</p>
     </div>
-
-    <div class="section-eyebrow" style="margin-top:36px;">02 · Números gerais dos 60 dias</div>
-    <div class="cluster">
-      <div>
-        <div class="stat-label">Total de conversas de agendamento</div>
-        <div class="big-num">190</div>
-        <div class="stat-caption">Somando as duas campanhas do período, <b>190 conversas</b> de agendamento foram geradas pelo WhatsApp, a um custo médio de <b>R$ 5,34</b> cada.</div>
-        <div class="stat-sub">
-          <div>Investimento total<b>R$ 1.014,46</b></div>
-          <div>Impressões<b>101.536</b></div>
-          <div>Cliques<b>1.488</b></div>
-        </div>
-      </div>
-      <div class="gauge-wrap">
-        <div class="gauge-title" style="align-self:flex-start;">Quanto está custando cada conversa</div>
-        <svg class="gauge" viewBox="0 0 220 130">
-          <path d="M 20 110 A 90 90 0 0 1 90.7 21.9" fill="none" stroke="#2fa876" stroke-width="14" stroke-linecap="round" opacity="0.9"/>
-          <path d="M 90.7 21.9 A 90 90 0 0 1 129.3 21.9" fill="none" stroke="#e0a527" stroke-width="14" stroke-linecap="round" opacity="0.9"/>
-          <path d="M 129.3 21.9 A 90 90 0 0 1 200 110" fill="none" stroke="#ff7a59" stroke-width="14" stroke-linecap="round" opacity="0.9"/>
-          <g id="needle" style="transform-origin:110px 110px; transform:rotate(-90deg); transition: transform 1.1s cubic-bezier(.2,.9,.25,1);">
-            <line x1="110" y1="110" x2="110" y2="34" stroke="#12313d" stroke-width="3" stroke-linecap="round"/>
-            <circle cx="110" cy="110" r="6" fill="#12313d"/>
-          </g>
-        </svg>
-        <div class="gauge-value">R$ 4,69</div>
-        <div class="gauge-zone-label">Custo baixo — está bom</div>
-        <div class="gauge-legend">
-          <span><i class="dot" style="background:#2fa876"></i>até R$5</span>
-          <span><i class="dot" style="background:#e0a527"></i>R$5–10</span>
-          <span><i class="dot" style="background:#ff7a59"></i>acima de R$10</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="sensors">
-      <div class="sensor"><div class="sensor-val">R$ 0,68</div><div class="sensor-label">Custo por clique · 60 dias</div></div>
-      <div class="sensor"><div class="sensor-val">R$ 9,99</div><div class="sensor-label">Custo a cada 1.000 pessoas alcançadas · 60 dias</div></div>
-      <div class="sensor"><div class="sensor-val">1,47%</div><div class="sensor-label">Taxa de cliques · 60 dias</div></div>
-      <div class="sensor"><div class="sensor-val">43.527</div><div class="sensor-label">Pessoas alcançadas · 60 dias</div></div>
-    </div>
-  </section>
-
-  <section class="section" id="campanhas">
-    <div class="section-head">
-      <div>
-        <div class="section-eyebrow">03 · Campanha por campanha</div>
-        <h2>Desempenho por campanha</h2>
-        <p>2 campanhas com entrega no período de 60 dias analisado.</p>
-      </div>
-      <div class="chips">
-        <button class="chip active" data-filter="all">Todas</button>
-        <button class="chip" data-filter="active">Em veiculação</button>
-        <button class="chip" data-filter="paused">Pausadas</button>
-      </div>
-    </div>
-
-    <div class="campaigns" id="campaignList">
-
-      <div class="card" data-status="active">
-        <div class="card-top">
-          <div>
-            <div class="card-title">CP · Agendamentos WhatsApp (13/07/2026)</div>
-            <div class="card-meta">Objetivo: Agendamentos pelo WhatsApp · Início: 13/07/2026</div>
-          </div>
-          <div class="status-pill status-active">Em veiculação</div>
-        </div>
-        <div class="card-grid">
-          <div><div class="k">Investido</div><div class="v">R$ 472,02</div></div>
-          <div><div class="k">Impressões</div><div class="v">43.248</div></div>
-          <div><div class="k">Alcance</div><div class="v">20.967</div></div>
-          <div><div class="k">Taxa de cliques</div><div class="v">1,64%</div></div>
-          <div><div class="k">Custo por clique</div><div class="v">R$ 0,67</div></div>
-          <div><div class="k">Conversas</div><div class="v">99</div></div>
-          <div><div class="k">Custo/conversa</div><div class="v">R$ 4,77</div></div>
-        </div>
-        <div class="bar-row">
-          <div class="bar-label"><span>Participação no investimento total</span><span>47%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="47"></div></div>
-        </div>
-      </div>
-
-      <div class="card" data-status="paused">
-        <div class="card-top">
-          <div>
-            <div class="card-title">CP · Agendamentos WhatsApp (08/05/2025)</div>
-            <div class="card-meta">Objetivo: Agendamentos pelo WhatsApp · Encerrada em julho</div>
-          </div>
-          <div class="status-pill status-paused">Pausada</div>
-        </div>
-        <div class="card-grid">
-          <div><div class="k">Investido</div><div class="v">R$ 527,12</div></div>
-          <div><div class="k">Impressões</div><div class="v">57.038</div></div>
-          <div><div class="k">Alcance</div><div class="v">22.560</div></div>
-          <div><div class="k">Taxa de cliques</div><div class="v">1,30%</div></div>
-          <div><div class="k">Custo por clique</div><div class="v">R$ 0,71</div></div>
-          <div><div class="k">Conversas</div><div class="v">86</div></div>
-          <div><div class="k">Custo/conversa</div><div class="v">R$ 6,13</div></div>
-        </div>
-        <div class="bar-row">
-          <div class="bar-label"><span>Participação no investimento total</span><span>53%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="53"></div></div>
-        </div>
-        <div class="note-inline"><b>Observação:</b> foi a campanha mais antiga da conta. Foi substituída pela campanha atual, que já está trazendo conversa mais barata (R$ 4,77 contra R$ 6,13 desta).</div>
-      </div>
-
-    </div>
-
-    <div class="footnote">Também existe a campanha "Nova campanha de Engajamento", pausada e sem nenhuma veiculação no período — por isso não entra nos números acima.</div>
   </section>
 
   <section class="section">
-    <div class="section-head"><div><div class="section-eyebrow">04 · O que isso significa</div><h2>O que os números mostram</h2><p>As principais leituras do período, em poucas palavras.</p></div></div>
+    <h2 class="section-title">O que estava rodando</h2>
+    <p class="section-sub">Você teve 2 campanhas de anúncio ativas nesses 2 meses. Veja o que cada uma trouxe:</p>
+
+    <div class="campaigns" id="campaignList">
+
+      <div class="card">
+        <div class="card-top">
+          <div>
+            <div class="card-title">🟢 A campanha nova (desde 13/07)</div>
+            <div class="card-meta">Traz gente que quer marcar aula de natação</div>
+          </div>
+          <div class="status-pill status-active">No ar agora</div>
+        </div>
+        <div class="card-grid">
+          <div><div class="k">Quanto gastamos</div><div class="v">R$ 472</div></div>
+          <div><div class="k">Gente interessada</div><div class="v">99</div></div>
+          <div><div class="k">Custo de cada uma</div><div class="v">R$ 4,77</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div>
+            <div class="card-title">⚪ A campanha antiga</div>
+            <div class="card-meta">Rodou até julho, depois foi substituída</div>
+          </div>
+          <div class="status-pill status-paused">Encerrada</div>
+        </div>
+        <div class="card-grid">
+          <div><div class="k">Quanto gastamos</div><div class="v">R$ 527</div></div>
+          <div><div class="k">Gente interessada</div><div class="v">86</div></div>
+          <div><div class="k">Custo de cada uma</div><div class="v">R$ 6,13</div></div>
+        </div>
+        <div class="note-inline">👉 Trocamos essa campanha por uma nova, com anúncio diferente. E deu certo: a nova já está trazendo gente interessada gastando <b>menos</b> por pessoa.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">O que isso quer dizer, na prática</h2>
     <div class="insights">
       <div class="insight-card">
-        <div class="tag">Os agendamentos estão crescendo</div>
-        <p>De um mês pro outro, as conversas de agendamento pelo WhatsApp cresceram <b>21%</b>, e o custo de cada uma caiu <b>23%</b> (de R$ 6,13 para R$ 4,69) — mais resultado gastando menos.</p>
+        <div class="insight-emoji">📈</div>
+        <div>
+          <div class="tag">Cada vez mais gente interessada</div>
+          <p>De um mês pro outro, <b>21% mais pessoas</b> mandaram mensagem perguntando sobre aula — e isso gastando <b>menos dinheiro</b> por pessoa. O estúdio está aparecendo mais, e pra gente certa.</p>
+        </div>
       </div>
       <div class="insight-card">
-        <div class="tag">Resultado direto da otimização</div>
-        <p>Essa melhora não é coincidência: em 13/07 a PerfoWise trocou a campanha antiga por uma nova, com <b>criativo e segmentação atualizados</b>. Desde então, o custo por agendamento caiu de R$ 6,13 pra R$ 4,77 — a otimização já se pagou em poucas semanas.</p>
+        <div class="insight-emoji">🔧</div>
+        <div>
+          <div class="tag">Isso não foi sorte — foi ajuste nosso</div>
+          <p>Em julho, trocamos o anúncio e pra quem ele aparece. Foi exatamente aí que o resultado melhorou. Mostra que ficar ajustando sempre faz diferença de verdade.</p>
+        </div>
       </div>
       <div class="insight-card">
-        <div class="tag">Por que vale a pena continuar</div>
-        <p>A campanha está numa curva de melhora, não de acomodação — cada ajuste está gerando mais agendamento por menos dinheiro. Parar agora significaria abrir mão exatamente do momento em que o investimento está rendendo mais.</p>
+        <div class="insight-emoji">💙</div>
+        <div>
+          <div class="tag">Por que vale a pena continuar</div>
+          <p>A campanha está <b>melhorando</b>, não parando. Se pausar os anúncios agora, é abrir mão bem na hora em que cada real investido está trazendo mais gente pro estúdio.</p>
+        </div>
       </div>
       <div class="insight-card">
-        <div class="tag">O que fazer agora</div>
-        <p>Com a conta em dia e a campanha atual performando bem, o próximo passo natural é aumentar aos poucos o orçamento dela, pra gerar mais agendamentos mantendo esse custo baixo.</p>
+        <div class="insight-emoji">🚀</div>
+        <div>
+          <div class="tag">Próximo passo</div>
+          <p>Como está indo bem, o ideal é aumentar aos poucos o quanto investimos — assim trazemos ainda mais gente interessada, gastando o mesmo por pessoa.</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <div class="thankyou">
+    <div class="emoji">💙</div>
+    <h2>Obrigado pela confiança!</h2>
+    <p>É muito bom ver seu estúdio crescendo. Vamos continuar cuidando dos seus anúncios de perto, ajustando sempre que precisar, pra trazer cada vez mais alunos pra nadar com você.</p>
+  </div>
+
   <footer>
-    <div class="f-brand">PerfoWise — Performance Inteligente</div>
-    <div class="f-note">Fonte: Meta Ads · Conta CA - Glezia Gomes · Período: 06/06/2026 – 05/08/2026</div>
+    <div class="f-brand">PerfoWise — cuidando dos seus anúncios</div>
+    <div class="f-note">Período: 06/06/2026 a 05/08/2026</div>
   </footer>
 
 </div>
 
 <script>
-  (function(){
-    const value = 4.69;
-    const angle = -90 + (Math.min(value,15)/15)*180;
-    const needle = document.getElementById('needle');
-    requestAnimationFrame(()=>{ needle.style.transform = 'rotate(' + angle + 'deg)'; });
-  })();
-
-  window.addEventListener('load', ()=>{
-    document.querySelectorAll('.bar-fill').forEach(el=>{
-      const w = el.getAttribute('data-width');
-      setTimeout(()=>{ el.style.width = w + '%'; }, 200);
-    });
-  });
-
   const cards = document.querySelectorAll('.card');
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
   }, {threshold:0.15});
   cards.forEach(c=>io.observe(c));
-
-  const chips = document.querySelectorAll('.chip');
-  chips.forEach(chip=>{
-    chip.addEventListener('click', ()=>{
-      chips.forEach(c=>c.classList.remove('active'));
-      chip.classList.add('active');
-      const filter = chip.getAttribute('data-filter');
-      cards.forEach(card=>{
-        const status = card.getAttribute('data-status');
-        const match = filter==='all' || filter===status;
-        card.classList.toggle('hidden', !match);
-      });
-    });
-  });
 </script>
 
 </body>
